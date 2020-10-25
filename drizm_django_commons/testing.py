@@ -13,6 +13,10 @@ def all_keys_present(dictionary: dict, keys: Iterable) -> bool:
     return all(k in dictionary.keys() for k in keys)
 
 
+def uri_is_http(uri: str) -> bool:
+    return True if uri.startswith("http") else False
+
+
 class HttpAPITestCase(APITestCase):
     base: ClassVar[str]
 
@@ -26,10 +30,18 @@ class HttpAPITestCase(APITestCase):
         self.detail = self.base % "detail"
 
     def post(self, payload: dict, url: str = None):
-        url = url or self.list
+        url = url or reverse(self.list)
         return self.client.post(
-            reverse(url), payload, format="json"
+            url, payload, format="json"
+        )
+
+    def patch(self, payload: dict, url: str):
+        return self.client.patch(
+            url, payload, format="json"
         )
 
 
-__all__ = ["exclude_keys", "all_keys_present", "HttpAPITestCase"]
+__all__ = [
+    "exclude_keys", "all_keys_present", "uri_is_http",
+    "HttpAPITestCase"
+]
