@@ -8,9 +8,6 @@ class ModelSerializerReadWriteMixin:
     def to_representation(self, instance):
         return self.Meta.response_serializer_class(
             context={
-                "request": self.context.get("request")  # noqa super attribute
+                "request": self.context.get("request")  # noqa super attr
             }
         ).to_representation(instance)
-
-
-__all__ = ["ModelSerializerReadWriteMixin"]
