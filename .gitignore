@@ -12,3 +12,6 @@ __pycache__
 
 # Exclude build files
 dist
+
+# Exclude database
+*.sqlite3
