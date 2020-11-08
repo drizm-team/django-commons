@@ -10,3 +10,8 @@ class TestingModelViewset(viewsets.ModelViewSet):
 class OneToOneModelViewset(viewsets.ModelViewSet):
     serializer_class = OneToOneTestModelSerializer
     queryset = OneToOneTestModel.objects.all()
+
+
+class ManyToOneModelViewset(viewsets.ModelViewSet):
+    serializer_class = ManyToOneTestModelSerializer
+    queryset = ManyToOneTestModel.objects.all()

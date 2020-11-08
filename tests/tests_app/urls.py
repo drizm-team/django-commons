@@ -14,5 +14,10 @@ router.register(
     views.OneToOneModelViewset,
     basename="one_viewset"
 )
+router.register(
+    r"many",
+    views.OneToOneModelViewset,
+    basename="many_viewset"
+)
 
 urlpatterns = router.urls
