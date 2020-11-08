@@ -30,7 +30,7 @@ djangorestframework = "3.12.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.1.1"
-drizm-commons = "^0.2.1"
+drizm-commons = "^0.2.2"
 
 [build-system]
 requires = ["poetry>=0.12"]
