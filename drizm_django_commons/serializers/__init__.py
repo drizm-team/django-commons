@@ -1,3 +1,3 @@
-from .mixins import ModelSerializerReadWriteMixin
+from .super import HrefModelSerializer
 
-__all__ = ["ModelSerializerReadWriteMixin"]
+__all__ = ["HrefModelSerializer"]

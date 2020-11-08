@@ -1,29 +1,16 @@
-from typing import ClassVar, Optional
-
-from django.db import models
-from rest_framework.reverse import reverse
+from .fields import SelfHrefField
 from rest_framework import serializers
+from typing import Union, Iterable, Optional
 
 
-class HrefHyperlinkingField(serializers.HyperlinkedRelatedField):
-    def to_representation(self, value):
-        default_url = super(
-            HrefHyperlinkingField, self
-        ).to_representation(value)
-        return {"href": default_url}
+class HrefModelSerializer(serializers.HyperlinkedModelSerializer):
+    url_field_name = "self"
+    serializer_url_field = SelfHrefField
+
+    class Meta:
+        fields: Union[str, Iterable]
+        serializer_class: serializers.Serializer
+        self_view: Optional[str] = None
 
 
-class SelfHyperlinkingField(serializers.Field):
-    def __init__(self, view_name: Optional[str] = None, **kwargs) -> None:
-        kwargs["read_only"] = True
-        kwargs["source"] = "*"
-        super(SelfHyperlinkingField, self).__init__(**kwargs)
-
-        self.view_name = view_name
-
-    def to_representation(self, value):
-        return {
-            "href": reverse(
-                self.view_name, args=(value.id,)
-            )
-        }
+__all__ = ["HrefModelSerializer"]
