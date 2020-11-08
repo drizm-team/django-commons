@@ -12,6 +12,7 @@ __pycache__
 
 # Exclude build files
 dist
+*.egg-info
 
-# Exclude database
+# Exclude test database
 *.sqlite3
