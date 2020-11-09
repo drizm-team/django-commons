@@ -7,7 +7,7 @@ It is not intended for public usage but you
 may still download, redistribute or 
 modify it to your liking.
 
-## Usage
+## Installation
 
 Install:  
 >pip install drizm-django-commons
@@ -22,3 +22,16 @@ app at the top of the INSTALLED_APPS list.
 
 Import like so:  
 import drizm_django_commons
+
+## Documentation
+
+pass
+
+## Changelog
+
+### 0.2.1
+
+- Added HrefModelSerializer which will
+serialize primary keys to hyperlinks
+- Moved testing.py dependencies to
+drizm-commons package utilities
