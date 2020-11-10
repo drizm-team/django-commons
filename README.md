@@ -1,4 +1,5 @@
 # Django Commons
+[![PyPI version](https://badge.fury.io/py/drizm-django-commons.svg)](https://badge.fury.io/py/drizm-django-commons)
 
 This package includes shared code used by
 the Drizm organizations development team.  
