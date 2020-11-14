@@ -7,6 +7,14 @@ from rest_framework.relations import Hyperlink
 
 
 class SelfHrefField(serializers.HyperlinkedIdentityField):
+    def __init__(self, view_name=None, **kwargs):
+        if not view_name and hasattr(self.parent, "Meta"):
+            view_name = getattr(self.parent.Meta, "self_view")
+        assert view_name is not None, 'The `view_name` argument is required.'
+        kwargs['read_only'] = True
+        kwargs['source'] = '*'
+        super().__init__(view_name, **kwargs)
+
     def _get_url_representation(self,
                                 value: Any,
                                 view_name: Optional[str] = None
@@ -48,8 +56,7 @@ class SelfHrefField(serializers.HyperlinkedIdentityField):
         return Hyperlink(url, value)
 
     def to_representation(self, value) -> Dict[str, str]:
-        self_url = getattr(self.parent.Meta, "self_view")
         url = self._get_url_representation(
-            value, self_url
+            value, self.view_name
         )
         return {"href": url}
