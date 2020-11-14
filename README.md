@@ -36,3 +36,7 @@ pass
 serialize primary keys to hyperlinks
 - Moved testing.py dependencies to
 drizm-commons package utilities
+
+### 0.2.2
+
+- Fixed bug with view selection for SelfHrefField
