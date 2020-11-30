@@ -26,7 +26,22 @@ import drizm_django_commons
 
 ## Documentation
 
-pass
+### Custom Management Commands
+
+#### startapp
+
+This version of startapp has been adjust to
+play well together with the
+Drizm-Django-Template file structure.
+
+Apart from that it is not majorly
+divergent from the default commands
+functionality.
+
+#### maketest
+
+Automagically creates boilerplate for a
+Integration Test for a given application.
 
 ## Changelog
 
@@ -39,4 +54,21 @@ drizm-commons package utilities
 
 ### 0.2.2
 
-- Fixed bug with view selection for SelfHrefField
+- Fixed bug with view selection for
+SelfHrefField
+
+### 0.3.0
+
+- Rework startapp command for better
+default file / folder structure
+- Add maketest <app-name> command
+to quickly generate boilerplate
+for tests
+- Integrate DRF-yasg documentation
+into Serializer Fields
+- Reduced boilerplate and added
+additional code comments for
+serializer fields
+- Add HexColor field
+- Fix issue with implicit
+view_name retrieval on SelfHrefField
