@@ -29,17 +29,16 @@ class Command(startapp.Command):
             APP_ROOT,
             "urls.py",
             (
-                "from django.urls import path",
                 "from rest_framework import routers",
-                "from django.apps import apps",
+                *newlines(),
+                "from . import views",
                 "from .apps import CoreConfig as CurrentApp",
                 *newlines(),
                 "app_name = CurrentApp.name",
-                newlines(),
                 "router = routers.SimpleRouter()",
-                newlines(),
+                *newlines(),
                 "urlpatterns = []",
-                newlines(),
+                *newlines(),
                 "urlpatterns += router.urls",
             )
         )
@@ -56,8 +55,9 @@ class Command(startapp.Command):
             APP_ROOT,
             "views.py",
             (
-                "from django.views import View",
-                "from rest_framework import mixins, viewsets",
+                "from rest_framework import viewsets",
+                *newlines(),
+                "from .models import serializers",
                 *newlines(2),
                 "# Your views here"
             )
@@ -94,10 +94,14 @@ class Command(startapp.Command):
                 "from django.db import models",
                 *newlines(2),
                 "# Your models here",
+                *newlines(2),
+                "__all__ = []"
             )
         )
 
         # Create the templates directory
         templates = APP_ROOT / "templates"
         templates.mkdir()
-        (templates / APP_ROOT.name).mkdir()
+        subfolder = templates / APP_ROOT.name
+        subfolder.mkdir()
+        (subfolder / ".gitkeep").touch()
