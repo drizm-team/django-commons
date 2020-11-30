@@ -45,9 +45,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny'
     ],
-    'DEFAULT_PAGINATION_CLASS':
-        'drizm_django_commons.pagination.MaxLimitOffsetPagination',
-    'PAGE_SIZE': 10
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
 }
 
 MIDDLEWARE = [

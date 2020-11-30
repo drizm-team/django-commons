@@ -1,23 +1,18 @@
 from rest_framework import routers
 from . import views
 
-app_name = "tests_app"
+app_name = "test"
 
 router = routers.SimpleRouter()
 router.register(
-    r"model",
-    views.TestingModelViewset,
-    basename="model_viewset"
+    r"auto",
+    views.AutoTestModelViewset,
+    basename="auto"
 )
 router.register(
-    r"one",
-    views.OneToOneModelViewset,
-    basename="one_viewset"
-)
-router.register(
-    r"many",
-    views.OneToOneModelViewset,
-    basename="many_viewset"
+    r"explicit",
+    views.ExplicitTestModelViewset,
+    basename="explicit"
 )
 
 urlpatterns = router.urls

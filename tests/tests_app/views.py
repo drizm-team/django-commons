@@ -1,17 +1,12 @@
 from rest_framework import viewsets
-from .models import *
+from .models import TestModel, ExplicitTestModelSerializer, AutoTestModelSerializer
 
 
-class TestingModelViewset(viewsets.ModelViewSet):
-    serializer_class = TestModelSerializer
-    queryset = TestingModel.objects.all()
+class AutoTestModelViewset(viewsets.ModelViewSet):
+    serializer_class = AutoTestModelSerializer
+    queryset = TestModel.objects.all()
 
 
-class OneToOneModelViewset(viewsets.ModelViewSet):
-    serializer_class = OneToOneTestModelSerializer
-    queryset = OneToOneTestModel.objects.all()
-
-
-class ManyToOneModelViewset(viewsets.ModelViewSet):
-    serializer_class = ManyToOneTestModelSerializer
-    queryset = ManyToOneTestModel.objects.all()
+class ExplicitTestModelViewset(viewsets.ModelViewSet):
+    serializer_class = ExplicitTestModelSerializer
+    queryset = TestModel.objects.all()
