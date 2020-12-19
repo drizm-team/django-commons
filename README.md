@@ -54,7 +54,7 @@ drizm-commons package utilities
 
 ### 0.2.2
 
-- Fixed bug with view selection for
+- Fixed a bug with view selection for
 SelfHrefField
 
 ### 0.3.0
@@ -72,3 +72,7 @@ serializer fields
 - Add HexColor field
 - Fix issue with implicit
 view_name retrieval on SelfHrefField
+
+### 0.3.1
+
+- Added Image and File validators
