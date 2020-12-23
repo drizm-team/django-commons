@@ -93,8 +93,13 @@ class HexColorField(serializers.Field):
         }
 
     def to_representation(self, value: int):
-        # Simply convert our value back to a string and add a #
-        return hex(value).replace("0x", "#")
+        # Convert the value back to a string,
+        # strip the leading "0x" that hex strings have
+        # and then fill the front up with leading 0s.
+        # This is necessary as the hex(value) function by default
+        # just does not generate leading 0s,
+        # so we need to fill it up until length 6.
+        return f"#{hex(value)[2:]!s:0>6}"
 
     def to_internal_value(self, data):
         # Validate that it is either a 3 or 6 digit hex-code with a # in it
