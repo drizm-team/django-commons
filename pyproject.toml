@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "drizm-django-commons"
-version = "0.3.1"
+version = "0.3.1.1"
 description = "Django commons for the Drizm organization"
 authors = ["ThaRising <kochbe.ber@gmail.com>"]
 maintainers = ["Dominik Lewandowski <dominik.lewandow@gmail.com>"]
